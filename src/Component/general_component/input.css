@@ -1,0 +1,174 @@
+/* .aa{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.label{
+    align-self: flex-start;
+}
+
+
+input:focus,  input:hover {
+    outline: none;
+    border: none;
+}
+input:not([type="submit"]):not([type="checkbox"]):hover,.login-container input:not([type="submit"]):not([type="checkbox"]):focus {
+    border-bottom: 2px solid rgb(5, 33, 74,1);
+    box-shadow: 0 4px 2px -2px rgb(5, 33, 74,1);
+}
+
+.text-input:focus, .text-input:hover {
+    outline: none;
+    border: none;
+}
+
+
+
+.text-input:not([type="submit"]):not([type="checkbox"]):hover, .text-input:not([type="submit"]):not([type="checkbox"]):focus {
+    border-bottom: 1px solid rgba(5,33,74,1);
+}
+
+.text-input[type="submit"] {
+    width: fit-content;
+    margin-top: 20px;
+    align-self: center;
+    border: none;
+    background-color: rgb(5,33,74);
+    color: white;
+    padding: .8rem 1.4rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.text-input[type="submit"]:hover {
+    background-color: rgba(5,33,74,1);
+}
+
+.text-input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+.label span{
+    
+    float: left;
+    
+}
+.erreur{
+    border-color:red !important;
+
+    
+
+}
+.erreur:hover{
+    
+    border-bottom: 2px solid red !important;
+    box-shadow: 0 4px 2px -2px red !important;
+}
+.valide{
+    border-color:green !important;
+}
+.valide:hover{
+    border-bottom: 2px solid green !important;
+    box-shadow: 0 4px 2px -2px green !important;
+}
+.aa[data-error]::after{
+    position: absolute;
+    color: red;
+    display: block;
+    content: attr(data-error);
+    font-size: .9rem;
+    top: 70%;
+    left: 0;
+}
+.aa{
+    position: relative;
+    
+    margin-top: 10px;
+}
+input:not([type="submit"]):not([type="checkbox"]) {
+    width: 100%;
+    background-color: #fff;
+    outline: none;
+    height: 40px;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    margin: 15px 0 20px 0;
+    padding-left: 20px;
+    transition: .2s;
+} */
+.label{
+    width: 70%; 
+    text-align: left;
+    position: relative;
+}
+
+.text-input:focus, .text-input:hover {
+    outline: none;
+    border: none;
+}
+
+.text-input:not([type="submit"]):not([type="checkbox"]) {
+    
+    width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 40px;
+    border: 2px solid rgba(0, 0, 0, .2);
+    margin-bottom: 20px;
+    padding-left: 10px;
+    transition: .2s;
+}
+
+.text-input:not([type="submit"]):not([type="checkbox"]):hover, .text-input:not([type="submit"]):not([type="checkbox"]):focus {
+    /* border-bottom: 1px solid rgba(5,33,74,1); */
+    background-color: rgb(230, 230, 230);
+}
+
+.text-input[type="submit"] {
+    width: fit-content;
+    margin-top: 20px;
+    align-self: center;
+    border: none;
+    background-color: rgb(5,33,74);
+    color: white;
+    padding: .8rem 1.4rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.text-input[type="submit"]:hover {
+    background-color: rgba(5,33,74,1);
+}
+
+.text-input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+.text-input[type="submit"] {
+    width: fit-content;
+    margin-top: 20px;
+    align-self: center;
+    border: none;
+    background-color: rgb(5,33,74);
+    color: white;
+    padding: .8rem 1.4rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.text-input[type="submit"]:hover {
+    background-color: rgb(66, 84, 110);
+}
+.submitlabel{
+    align-self: center;
+    
+    width: fit-content;
+}

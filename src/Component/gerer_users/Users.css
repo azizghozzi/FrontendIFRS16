@@ -1,0 +1,60 @@
+/* Provide sufficient contrast against white background */
+/* a {
+    color: #0366d6;
+  }
+  
+  code {
+    color: #E01A76;
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+  }
+  
+  .mrgnbtm {
+    margin-top: 1px;
+  }
+  
+  .display-board {
+      margin-left: 65%;
+    width: 30%;
+    background-color: rgb(555, 200, 789);
+    padding: 2%;
+  }
+  
+  .number {
+    color: red;
+    font-size: 75px;
+    text-align: center;
+  }
+  */
+.users{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.users>button{
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  float: left;
+  background-color: #F9D923;
+  width: 15%;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.users>button .icon{
+  margin-right: 15px;
+}
+.users>button:hover{
+  background-color: rgb(170, 146, 8);
+}
+
+
+

@@ -1,0 +1,39 @@
+.set3,.set1,.set2{
+    width: 20vw;
+    margin-right: 10px;
+    border-right: 1px solid grey;
+    padding: 5px;
+    text-align: left;
+}
+.set3{
+    border: none;
+    width: 25vw;
+}
+.datediv{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.datediv svg{
+    
+    margin :1% 1% 0 1%;
+}
+.set1 input {
+    background-color: grey;
+}
+.creatcontract{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.creatcontract  .text-input  {
+    border-radius: 0px !important;
+}
+.creatcontract  .text-input:focus  {
+    border-color:  rgb(214, 141, 6) !important;
+}
+.formcontainer{
+    display: flex;
+}

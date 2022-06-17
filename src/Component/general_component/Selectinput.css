@@ -1,0 +1,24 @@
+.select-input {
+    width: 85%;
+    
+    border: none;
+    outline: none;
+    height: 35px;
+    border-bottom: 2px solid rgba(0, 0, 0, .2);
+    cursor: pointer;
+    transition: .2s;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+.select-input:hover, .select-input:focus {
+    border-bottom: 1px solid rgba(5,33,74,1);
+}
+.select-input option{
+    background-color: #000;
+}
+
+.select-input option{
+    background-color: #fff;
+    color: #000;
+
+}

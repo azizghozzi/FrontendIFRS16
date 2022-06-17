@@ -1,0 +1,258 @@
+table{
+    border: 1px;
+    border-collapse: separate;
+    border-spacing: 0 3px;
+    width: 100%;
+    cursor: pointer;
+    
+  }
+   td {
+    border-bottom: 1px solid grey;
+  }
+  tr:first-child td{
+    border-top: 1px solid grey;
+  }
+  thead tr th{
+    position: relative;
+  }
+  thead tr th:not(th:first-child)::before {
+   display: block;
+   content: '';
+   border-left: 1px solid grey;
+   position: absolute;
+   left: 10px;
+   height: 50%;
+  }
+  thead tr{
+    margin-bottom: 5px;
+  }
+tbody tr:hover {background-color: rgb(247, 248, 255);}
+th{
+  color: grey;
+  height: 30px;
+  text-align: left;
+  padding: 1rem;
+}
+tbody{
+  border-right: 1px solid #000;
+}
+td{
+  height: 70px;
+  text-align: left;
+  padding: 1rem;
+  
+}
+
+.table-start{
+    border: 1px solid rgb(141, 140, 140);
+    border-radius: 15px;
+  }
+  .table-config{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .font-table{
+    display: flex;
+    width: 15%;
+    justify-content: space-evenly;
+    align-items: center;
+    color: grey;
+  }
+  .sort-filter{
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .font-table{
+    
+    cursor: pointer;
+  }
+  .test{
+    position: relative;
+    
+    padding: 2px;
+  }
+  .sear{
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    color: grey;
+  }
+  input[type="search"]{
+    border: 1px solid grey;
+    outline: none ;
+    cursor: pointer;
+    border-radius:5px;
+    margin-left: 15px !important;
+    padding: 5px 5px 5px 40px;
+    height: 35px !important;
+  }
+  input[type="search"]:focus{
+    outline: grey solid 1px;
+  }
+  .sd{
+    display: flex;
+    width: 30%;
+    height: 100%;
+    justify-content: space-between;
+    float: right;
+    
+    padding: 1rem;
+  }
+  .action_btn{
+   width: 90px;
+   border-radius: 50px;
+   outline: none;
+   border: none;
+   padding: 3px;
+   color: #fff;
+  }
+  .view{
+    background-color: rgba(22, 30, 99, 0.8);
+  }
+  .upd{
+    margin-left:10px ;
+    background-color: rgba(199, 155, 10, 0.8);
+  }
+  .del{
+    margin-left:10px ;
+    background-color: rgb(241, 43, 44);
+  } 
+  .fonthover{
+    position: relative;
+  }
+  .njareb{
+    position: absolute;
+    top:15px;  
+  }
+  select{
+    border: none;
+    transform: scale(1.2);
+  }
+  *>option{
+    border: none;
+    outline: none;
+   
+  }
+  .font_btn , .font_btn:disabled{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+  .font_btn:last-child{
+    margin-left: 10px;
+  }
+  .statustable{
+    border-radius: 5px;
+    width: 90px;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .inactive{
+    background-color: rgba(250, 44, 44, 0.322 );
+    color: rgb(201, 5, 5);
+  }
+  .pending{
+  
+    background-color: rgba(212, 250, 44, 0.322) ;
+    color: rgb(134, 161, 10);
+  }
+  .activee{
+ 
+    background-color: rgba(44, 250, 71, 0.322) ;
+    color: rgb(37, 121, 48);
+  }
+  .searchDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    
+    width: 25%;
+    
+}
+.tableFooter{
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.tableSelect{
+  border-radius:10px ;
+  height: 50px;
+  width: 110px;
+  font-size: 15px;
+  padding: 5px;
+  background-color: #fff;
+  margin-right: 10px;
+}
+.tablepages{
+  margin: 0 10px;
+}
+.tablepagination{
+  height: 50px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  cursor: pointer;
+  font-size: 15px;
+  
+}
+#a{
+  border-radius:10px 0 0 10px;
+  border-right: none;
+  width: 100px;
+}
+#b{
+  border-radius:0 10px 10px 0;
+}
+#a,#b{
+  width: 100px;
+  height: 35px;
+}
+.editebutton{
+  cursor: pointer;
+  background-color: #008CBA;
+  border: #008CBA solid 1px;
+  border-radius: 5px;
+  font-size: 20px;
+  height: 40px;
+  width: 50px;
+  
+}
+.editebutton:hover{
+  background-color: #24a0ed 
+}
+.deletebutton{
+  cursor: pointer;
+  color: #fff;
+  height: 40px;
+  width: 50px;
+  background-color: #f44336;
+  text-decoration: none;
+  border: #f44336 solid 1px;
+  border-radius: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+}
+.deletebutton:hover{
+  background-color: #a3413a;
+}
+.linkeditebutton{
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+td >div {
+  max-width: 120px;
+  word-break: break-all;
+}

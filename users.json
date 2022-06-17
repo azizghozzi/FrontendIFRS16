@@ -1,0 +1,20 @@
+{
+   "users": 
+    [
+        {
+            "id":1,
+            "email":"superadmin@test.com",
+            "password":"1234",
+            "type":"user",
+            "follow":"1"
+        },
+        {
+            "id":2,
+            "email":"admin@test.com",
+            "password":"1234",
+            "type":"admin",
+            "follow":""
+        }
+    ],
+    "contracts":[]
+}

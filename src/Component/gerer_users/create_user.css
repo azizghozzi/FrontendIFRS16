@@ -1,0 +1,46 @@
+.user_create_form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.user_create_form label {
+    margin: 15px;
+}
+.formdiv{
+    width: 50vw;
+    float: right;
+}
+.formdiv form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.submit_user{
+   /*  align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    align-self: center;
+    background-color: yellow;
+    width: 120px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.dele{
+    background-color: rgb(245, 47, 47);
+    font-size: 1rem;
+    font-weight: bold;
+    align-self:center;
+}
+.input_div{
+    width: 35%;
+    margin: 10px;
+    text-align: left;
+}
+
