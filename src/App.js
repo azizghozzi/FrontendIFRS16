@@ -6,12 +6,13 @@ import Dashbord from './Component/Dashbord/Dashbord';
 import { useState } from 'react';
 import Login from './Pages/Login/Login';
 import Sidebar from './Pages/sidebar/sidebar';
-import { BrowserRouter as Router, Routes, Route,Navigate,useNavigate, Outlet } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route,Navigate, Outlet } from "react-router-dom";
 import Users from './Component/gerer_users/Users';
 import Navbar from './Pages/Navbar/Navbar';
 import { selectUser } from './features/userSlice';
 import Gerer_Contrat from './Component/Gerer_Contrat/Gerer_Contrat';
 import Customers from './Component/customers/Customers';
+import SimpleUsers from './Component/gerer_simple_user/SimpleUsers';
 const Layout = ({active,setActive})=>{
   return(
     <>
@@ -20,7 +21,7 @@ const Layout = ({active,setActive})=>{
                 <div className="main-container">
                   <Navbar setActive={setActive} active={active}/>
                   <div className="container">
-                      <Outlet/>
+                      <Outlet/> {/* // router lkol yetsabou feha */}
                   </div>
                 </div>
               </div>
@@ -32,69 +33,7 @@ function App() {
   const[active, setActive]=useState(false) //STATE bech nkaber wnsagher sidebar
   const isLoggedIn = useSelector((state) => state.isLoggedIn.value);
   const type=useSelector(selectUser)
-  
-  const[ users] = useState([
-    {
-      id:1,
-      userName:"test",
-      password:"atest",
-      creation:"12/05/2022"
-    },
-    {
-      id:2,
-      userName:"test1",
-      password:"btest",
-      creation:"12/05/2022"
-    },
-    {
-      id:3,
-      userName:"test2",
-      password:"ctest",
-      creation:"12/05/2022"
-    },
-    {
-      id:4,
-      userName:"test3",
-      password:"est",
-      creation:"12/05/2022"
-    },
-    {
-      id:5,
-      userName:"test4",
-      password:"1test",
-      creation:"12/05/2022"
-    },{
-      id:1,
-      userName:"test",
-      password:"atest",
-      creation:"12/05/2022"
-    },
-    {
-      id:2,
-      userName:"test1",
-      password:"btest",
-      creation:"12/05/2022"
-    },
-    {
-      id:3,
-      userName:"test2",
-      password:"ctest",
-      creation:"12/05/2022"
-    },
-    {
-      id:4,
-      userName:"test3",
-      password:"est",
-      creation:"12/05/2022"
-    },
-    {
-      id:5,
-      userName:"test4",
-      password:"1test",
-      creation:"12/05/2022"
-    },
 
-  ]);
   //const [isLoggedIn, setLoggedIn] =useState(false)
   return (
     <div className="App">
@@ -106,13 +45,13 @@ function App() {
                 <Route element={<Layout setActive={setActive} active={active}/>}>
                 <Route  exacte path="/" element= {<Dashbord  />}/>
                 { type.type === 1? 
-                <Route   path="/users-management/" element= {<Users user = {users}/>}/>
+                <Route   path="/users-management/" element= {<SimpleUsers />}/>
                 :<></>}
                 <Route   path="/output-contact/" element= {<Dashbord  />}/>
                 <Route   path="/contract-management/" element= {<Gerer_Contrat/>}/>
                 <Route   path="/deadline-management/" element= {<Dashbord  />}/>
                 <Route   path="/paramaitre/" element= {<Dashbord  />}/>
-                <Route   path="/accounts" element={<Users />} />
+                <Route   path="/accounts" element={<Users/>} />
                 <Route   path="/customers" element={<Customers />} />
                 <Route   path="/*" element={<Navigate to="/" />}/>
                 </Route>
@@ -123,6 +62,9 @@ function App() {
                 <Route   path="/*" element={<Navigate to="/login" />}/>
                 </>
               }
+
+          </Routes>
+          <Routes>
 
           </Routes>
          </Router>

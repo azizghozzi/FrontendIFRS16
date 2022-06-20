@@ -10,46 +10,46 @@ export default function Charts() {
 
     const data = [
         {
-            name: 'Page A',
+            name: 'Monoprix',
             uv: 4000,
             pv: 2400,
-            amt: 2400,
+            visite: 2400,
         },
         {
-            name: 'Page B',
+            name: 'carrefour',
             uv: 3000,
             pv: 1398,
-            amt: 2210,
+            visite: 2210,
         },
         {
-            name: 'Page C',
+            name: 'Aziza',
             uv: 2000,
             pv: 9800,
-            amt: 2290,
+            visite: 2290,
         },
         {
-            name: 'Page D',
+            name: 'Hamadi Abid',
             uv: 2780,
             pv: 3908,
-            amt: 2000,
+            visite: 2000,
         },
         {
-            name: 'Page E',
+            name: 'Exist',
             uv: 1890,
             pv: 4800,
-            amt: 2181,
+            visite: 2181,
         },
         {
-            name: 'Page F',
+            name: 'Heni',
             uv: 2390,
             pv: 3800,
-            amt: 2500,
+            visite: 2500,
         },
         {
-            name: 'Page G',
+            name: 'Géant',
             uv: 3490,
             pv: 4300,
-            amt: 2100,
+            visite: 2100,
         },
     ];
     const data2 = [
@@ -117,7 +117,8 @@ export default function Charts() {
             <ResponsiveContainer width="100%" aspect={4 / 1}>
                 <LineChart data={data}>
                     <XAxis dataKey="name" stroke='grey'/>
-                    <Line type="monotone" dataKey="amt" stroke='#5550bd'/>
+                    <YAxis dataKey="visite" stroke='grey'/>
+                    <Line type="monotone" dataKey="visite" stroke='#5550bd'/>
                     <Tooltip/>
                     <CartesianGrid stroke='grey' strokeDasharray="1 2"/>
                     <Legend/>

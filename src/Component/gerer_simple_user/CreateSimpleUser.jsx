@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
-import './Users.css'
-import './create_user.css'
+
+import '../gerer_users/Users.css'
+
 import Input from '../general_component/input'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -12,8 +13,7 @@ import { type } from '@testing-library/user-event/dist/type'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../../features/userSlice'
 import Pending from '../general_component/pending'
-
-const CreateUser = ({setState,getdata,view,update,data }) => {
+const CreateSimpleUser= ({setState,getdata,view,update,data }) => {
     const type=useSelector(selectUser)
     const [user,setUser]=useState(data)
     const [email,setEmail]=useState("")
@@ -22,14 +22,14 @@ const CreateUser = ({setState,getdata,view,update,data }) => {
     const postuser= async ()=>{
         setPending(true)
         await axios.all([
-            axios.post("http://localhost:3006/users", //ta3mel el user eli bech nlogini bih
+            axios.post("http://localhost:3006/users",
             {email:user.email,
              password:user.password,
              type:type.type+1,
              token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MmEyODEwZjQyZTU1NzRhZWM2ZWUyNTIiLCJpYXQiOjE2NTUwNzQzMzksImV4cCI6MTY1NTE2MDczOX0.q3durcVUSB8Z-mE1TkuWNLB4_BH4iVPsvUP2sOgHtGI"
          }),
            
-             axios.post('http://localhost:3006/accounts',user)
+             axios.post('http://localhost:3006/simpleUsers',user)
         ])
         .then((res)=>{
             setPending(false)
@@ -42,7 +42,7 @@ const CreateUser = ({setState,getdata,view,update,data }) => {
     }
     const updateData=async()=>{
         setPending(true)
-        await axios.put(`http://localhost:3006/accounts/${user.id}`,user)
+        await axios.put(`http://localhost:3006/simpleUsers/${user.id}`,user)
         .then((resp)=>
             {console.log(resp) 
                 getdata()
@@ -62,8 +62,8 @@ const submitForm =(e)=>{
 }
 const inputs =[
     {
-        "label":"entreprise",
-        "name":"entreprise",
+        "label":"Username",
+        "name":"userName",
         "type":"text",
     },
     {
@@ -77,26 +77,10 @@ const inputs =[
         "type":"text",
     },
     {
-        "label":"Tel",
-        "name":"tel",
-        "type":"tel",
-    },
-    {
         "label":"Date Created",
         "name":"dateCreated",
         "type":"date",
-    },
-    {
-        "label":"end Date",
-        "name":"endDate",
-        "type":"date",
-    },
-   
-    {
-        "label":"region",
-        "name":"region",
-        "type":"text",
-    },
+    }
     
 ]
 const handleField = (e) => {
@@ -135,39 +119,11 @@ const handleField = (e) => {
                                 </div>
                         )
                     })}
-                    <div className='input_div'>
-
-                    <SelectInput
-                    
-                    name="status"
-                    label="status"
-                    value={user.status}
-                    handleField={handleField}
-                    options={[
-                        {
-                            "label":"Pending",
-                            "className":"pending",
-                            "value":0
-                        },
-                        {
-                            "label":"Active",
-                            "className":"valid",
-                            "value":1
-                        },
-                        {
-                            "label":"Inactive",
-                            "className":"invalid",
-                            "value":-1
-                        }
-                    ]}
-                    disabled={view ?true:false}
-                    />
-                    </div>
-                    
                 </div>
                {/*  <input type='submit' className='submit_user' value="Submit"/>  */}
                     
-                    <Input type="submit" className="submitlabel"/>
+                   { !view? <Input type="submit" className="submitlabel"/>
+                   : <button className="Quit" onClick={( )=>setState(false)}> quite</button>}
                         
                
                    {/* 
@@ -179,4 +135,5 @@ const handleField = (e) => {
     )
 }
 
-export default CreateUser
+
+export default CreateSimpleUser

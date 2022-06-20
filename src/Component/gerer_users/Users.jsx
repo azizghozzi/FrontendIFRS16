@@ -27,6 +27,11 @@ const [user,setUser]=useState([])
 const[deleted,setDeleted]=useState(false)
 const [selectedData,setSelectedData]=useState({})
 const [pending,setPending ] = useState(false)
+const [confirm,setConfirm]=useState({
+    confirm:false,
+    id:null,
+    nom:null
+})
 const getdata = async ()=>{
     setPending(true)
     const accessToken =localStorage.getItem("SECRET_TOKEN")
@@ -39,28 +44,6 @@ const getdata = async ()=>{
          setPending(false) 
     }) 
 }
-
-const handleDelete = async (id) => {
-    setPending(true)
-    console.log(id)
-    const resp = await axios.delete(`http://localhost:3006/accounts/${id}`)
-    .then((res)=>{ setPending(true)
-         getdata();})
-    .catch((err)=>console.log(err))
-    console.log("Delete successful");
-};
-
-useEffect(()=>{
-    getdata()
-},[])
-const COLUMNS = [
-    { Header: "Entreprise", accessor: "entreprise" },
-    { Header: "Email", accessor: "email" },
-    { Header: "Telephone", accessor: "tel" },
-    { Header: "Created Date", accessor: "dateCreated" },
-    { Header: "end Date", accessor: "endDate" },
-    { Header: "status", accessor: "status",Cell:(props) => <Btn val ={parseInt(props.value)}/>} 
-];
 const [userdata,setuserData]=useState({
         
     "password":"",
@@ -72,25 +55,114 @@ const [userdata,setuserData]=useState({
     "tel":"",
     "email":""
 })
+const handleDelete = (id,nom) => {
+    setConfirm({
+        confirm:true,
+        id:id,
+        nom:nom
+    })
+    console.log(confirm)
+};
+const confirmAction= async (action)=>{
+    console.log(userdata)
+    console.log(confirm.id)
+    if(action){
+
+        setPending(true)
+        const resp = await axios.delete(`http://localhost:3006/accounts/${confirm.id}`)
+        .then((res)=>{ 
+            getdata();
+            setPending(false)
+           
+        })
+        .catch((err)=>console.log(err))
+        console.log("Delete successful");
+        setConfirm({
+            confirm:false,
+            id:null,
+            nom:null
+        })
+    }
+    else  setConfirm({
+        confirm:false,
+        id:null,
+        nom:null
+    })
+
+}
+
+useEffect(()=>{
+
+    getdata()
+},[])
+const COLUMNS = [
+    { Header: "Entreprise", accessor: "entreprise" },
+    { Header: "Email", accessor: "email" },
+    { Header: "Telephone", accessor: "tel" },
+    { Header: "Created Date", accessor: "dateCreated" },
+    { Header: "end Date", accessor: "endDate" },
+    { Header: "status", accessor: "status",Cell:(props) => <Btn val ={parseInt(props.value)}/>} 
+];
+
     return(
         <div className="users">
+            {confirm.confirm &&
+            <Modal
+            setState={setConfirm}
+                modal_name="Confirm deletion"
+                children={<div>
+                    <h3
+                    style={{margin:"15px"}} 
+                    >are you sure to delete {selectedData.entreprise} </h3>
+                    <button onClick={()=>confirmAction(true)}
+                        style={{
+                        outline:"none",
+                        border:"none",
+                        padding:"5px",
+                        backgroundColor:"#c13131",
+                        marginRight:"10px",
+                        width:"100px",color:"#fff"
+                    }} >confirm</button>
+                    <button onClick={()=>setConfirm({
+                            confirm:false,
+                            id:null,
+                            nom:null
+                        })}
+                    style={{
+                       
+                        outline:"none",
+                        border:"none",
+                        padding:"5px",
+                        backgroundColor:"#0b700b",
+                        width:"100px",color:"#fff"
+                    }}>quit</button>
+                </div>}
+            />
+            }
             {pending&& <Pending/> }
             <button onClick={()=>setAdd(true)}> 
              <FontAwesomeIcon icon={faPlus} size="2x" className='icon'/> 
-             ADD user</button>
+             ADD Account</button>
             <Table 
             datas={user} 
             COLUMNS={COLUMNS} 
             handleEdite={setUpdate} 
             handleDelete ={handleDelete }
-            handleAdd={setAdd}
+            //handleAdd={setAdd}
             setSelectedData={setSelectedData}
             setView={setView}
             
             />
             {
                 add?
-                <Modal setState={setAdd} modal_name="Create User" children={<CreateUser data={userdata} update={false} view={view}  getdata={getdata}/>}/>:
+                <Modal 
+                setState={setAdd} 
+                modal_name="Create User" 
+                children={<CreateUser 
+                    data={userdata} 
+                    update={false} 
+                    view={view}  
+                    getdata={getdata}/>}/>:
                 <></>
             }
             {
@@ -99,7 +171,7 @@ const [userdata,setuserData]=useState({
                 setState={setUpdate} 
                 modal_name="Update User" 
                 children={<CreateUser 
-                    setState={setUpdate} 
+                        setState={setUpdate} 
                         data={selectedData} 
                         update={true} 
                         view={view} 
@@ -107,13 +179,6 @@ const [userdata,setuserData]=useState({
                 }/>
                :
                <></>
-                }
-
-                {
-                deleted?
-                <Modal setState={setDeleted} modal_name="Delete User" children={<CreateUser data={selectedData} deleted={true}update={true}view={view}  getdata={getdata}/>}/>:
-                <></>
-
                 }
                 {
                 view?
@@ -123,9 +188,9 @@ const [userdata,setuserData]=useState({
                 
                 children={<CreateUser 
                     view={view} 
-                        data={selectedData} 
-                        update={false} 
-                        getdata={getdata}/>
+                    data={selectedData} 
+                    update={false} 
+                    getdata={getdata}/>
                 }/>
                :
                <></>

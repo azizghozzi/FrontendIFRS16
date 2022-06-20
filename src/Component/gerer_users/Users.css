@@ -56,5 +56,17 @@
   background-color: rgb(170, 146, 8);
 }
 
-
+.Quit{
+  border: none;
+  width: 100px;
+  padding: 6px;
+  align-self: center;
+  background-color: rgb(5,33,74);
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.Quit:hover{
+  background-color:  rgb(39, 86, 156);
+}
 

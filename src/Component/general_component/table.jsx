@@ -169,7 +169,7 @@ export default function Table(props) {
                                 { !props.action?<td>
                                 <button className='action_btn view' onClick={()=>{setView(true);setSelectedData(row.original)}}>View</button> 
                                 <button className='action_btn upd' onClick={()=>{handleEdite(true) ; setSelectedData(row.original);}}>update</button>
-                                <button className='action_btn del' onClick={()=>{handleDelete(row.original.id)}}>delete</button>
+                                <button className='action_btn del' onClick={()=>{handleDelete(row.original.id) ; setSelectedData(row.original);}}>delete</button>
                                 </td>:
                                 <></>}
                             </tr>

@@ -69,7 +69,7 @@ function Navbar({setActive,active}) {
           <div className='e'>
             <FontAwesomeIcon icon={faSquarePlus} size="3x" color="white" />
             <div className="profile" onClick={()=>document.querySelector('.profile-settings').classList.toggle('active')}>
-                <img className='img_profile' src={/* require("../../assets/profil.png") */ user.imageUrl} alt=""/>
+                <img className='img_profile' src={require("../../assets/profil.png") /* user.imageUrl */} alt=""/>
                 <div className="profile-settings">
                   <div className="profile-settings-header">
                   <div className="bg-iimage">
@@ -77,7 +77,7 @@ function Navbar({setActive,active}) {
                   </div>
                   <div className='a'>
                   <div className='profile-settings-img-div'>
-                  <img className='profile-settings-header-img' src={user.imageUrl} alt=""/>
+                  <img className='profile-settings-header-img' src={require("../../assets/profil.png")/* user.imageUrl */} alt=""/>
                   <label className='imageupload'>
                   <input type="file" onChange={(e)=>fileHandler(e)} />
                   <FontAwesomeIcon  icon={faCirclePlus} />
@@ -85,7 +85,7 @@ function Navbar({setActive,active}) {
                   </div>
                   <span>
                     <h5> name Here</h5>
-                    <h5>aaa@aaa.com</h5>
+                    <h5>{user.email}</h5>
                   </span>
                   </div>
                   <button onClick={()=>handleLogout()}>LOGOUT</button>
